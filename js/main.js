@@ -94,13 +94,10 @@ async function init() {
   setMusicLayers(game.placed);
   document.body.classList.add('inicio');
   openOverlay('menu');
-  const unlockAudio = () => {
-    startAudio(save.settings);
-    window.removeEventListener('pointerdown', unlockAudio);
-    window.removeEventListener('keydown', unlockAudio);
-  };
-  window.addEventListener('pointerdown', unlockAudio);
-  window.addEventListener('keydown', unlockAudio);
+  // En pantallas táctiles pointerdown no cuenta como gesto para el audio:
+  // hay que esperar a soltar el dedo. Se reintenta en cada gesto.
+  const unlockAudio = () => startAudio(save.settings);
+  for (const ev of ['pointerup', 'touchend', 'click', 'keydown']) window.addEventListener(ev, unlockAudio);
   // Sin mote no se juega: es lo que identifica al jugador en el ranking.
   if (!save.mote) openMotePanel(true);
   else sendPending();

@@ -22,10 +22,14 @@ const SCALE = [62, 64, 66, 69, 71, 74, 76, 78, 81, 83];
 const CHORDS = [[50, 57, 62, 66], [47, 54, 59, 62], [43, 50, 55, 59], [45, 52, 57, 61]];
 
 // El navegador solo deja arrancar el audio tras un gesto del jugador.
+// Se llama en cada gesto hasta que el contexto suena: en el móvil el primer
+// toque puede no valer, y iOS lo suspende al bloquear la pantalla.
 export function startAudio(settings = {}) {
-  musicOn = settings.music !== false;
-  sfxOn = settings.sfx !== false;
   if (!ac) {
+    musicOn = settings.music !== false;
+    sfxOn = settings.sfx !== false;
+    // iOS silencia Web Audio con el interruptor de silencio salvo en modo 'playback'.
+    if (navigator.audioSession) navigator.audioSession.type = 'playback';
     ac = new (window.AudioContext || window.webkitAudioContext)();
     master = ac.createGain();
     master.connect(ac.destination);
@@ -36,7 +40,7 @@ export function startAudio(settings = {}) {
     sfxBus.gain.value = SFX_VOLUME;
     sfxBus.connect(master);
   }
-  if (ac.state === 'suspended') ac.resume();
+  if (ac.state !== 'running') ac.resume().catch(() => {});
   if (!musicTimer) musicTimer = setInterval(musicTick, 500);
 }
 
@@ -126,16 +130,18 @@ function musicTick() {
   step++;
 }
 
+// Además de la nota, una octava arriba más suave: los altavoces del móvil no
+// reproducen graves y sin ella el pad no se oye.
 function pad(freq, t, dur, vol) {
-  for (const detune of [-6, 6]) {
+  for (const [detune, mult, v] of [[-6, 1, vol], [6, 1, vol], [0, 2, vol * 0.6]]) {
     const osc = ac.createOscillator();
     const gain = ac.createGain();
     osc.type = 'sine';
-    osc.frequency.value = freq;
+    osc.frequency.value = freq * mult;
     osc.detune.value = detune;
     gain.gain.setValueAtTime(0, t);
-    gain.gain.linearRampToValueAtTime(vol, t + 2);
-    gain.gain.linearRampToValueAtTime(vol * 0.8, t + dur - 2);
+    gain.gain.linearRampToValueAtTime(v, t + 2);
+    gain.gain.linearRampToValueAtTime(v * 0.8, t + dur - 2);
     gain.gain.linearRampToValueAtTime(0, t + dur);
     osc.connect(gain).connect(musicBus);
     osc.start(t);
