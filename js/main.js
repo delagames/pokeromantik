@@ -390,6 +390,10 @@ function setupScreens() {
   $('menu-button').addEventListener('click', () => openOverlay('menu'));
   $('undo-button').addEventListener('click', undo);
   $('menu-continue').addEventListener('click', closeOverlay);
+  $('menu-home').addEventListener('click', () => {
+    document.body.classList.add('inicio');
+    openOverlay('menu');
+  });
   $('menu-finish').addEventListener('click', () => {
     closeOverlay();
     game.finish();

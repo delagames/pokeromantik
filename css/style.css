@@ -601,6 +601,9 @@ body.inicio #menu { width: auto; max-height: none; }
 .menu-buttons { margin-top: 12px; gap: 12px; }
 .menu-buttons .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 10px; margin-top: 6px; }
 .menu-buttons .grid button { font-size: 14px; padding: 9px 8px; }
+.menu-buttons .grid .wide { grid-column: span 2; }
+/* Desde la pantalla de inicio no hace falta el botón para volver a ella. */
+body.inicio #menu-home { display: none; }
 /* Borde fino: sin él los botones claros se funden entre sí y con el fondo. */
 #menu button.secondary:not(.link) { border: 1.5px solid rgba(11, 16, 32, 0.18); }
 body.inicio #menu button.secondary:not(.link) { border-color: rgba(244, 239, 230, 0.28); }
