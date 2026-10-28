@@ -598,9 +598,12 @@ body.inicio .menu-top { color: var(--amarillo); }
 body.inicio #menu { overflow-x: hidden; }
 body.inicio #menu { width: auto; max-height: none; }
 #menu p { margin: 4px 0; }
-.menu-buttons { margin-top: 10px; }
-.menu-buttons .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.menu-buttons .grid button { font-size: 14px; padding: 7px 8px; }
+.menu-buttons { margin-top: 12px; gap: 12px; }
+.menu-buttons .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 10px; margin-top: 6px; }
+.menu-buttons .grid button { font-size: 14px; padding: 9px 8px; }
+/* Borde fino: sin él los botones claros se funden entre sí y con el fondo. */
+#menu button.secondary:not(.link) { border: 1.5px solid rgba(11, 16, 32, 0.18); }
+body.inicio #menu button.secondary:not(.link) { border-color: rgba(244, 239, 230, 0.28); }
 .menu-more { margin: 8px auto 0; max-width: 300px; }
 .menu-more summary { cursor: pointer; font-size: 13px; color: var(--suave); padding: 4px; }
 body.inicio .menu-more summary { color: #A9B3CC; }
