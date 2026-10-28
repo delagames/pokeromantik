@@ -1,0 +1,434 @@
+[
+ {
+  "id": "ruta-1",
+  "nombre": "Ruta 1",
+  "biomas": [
+   "pradera",
+   "bosque",
+   "agua"
+  ],
+  "inicio": "pradera",
+  "pesos": {
+   "pradera": 3,
+   "bosque": 3,
+   "agua": 2
+  },
+  "mazo": 34,
+  "noche": false,
+  "objetivo": 9,
+  "fondo": "#EEF0E4",
+  "patron": "hierba",
+  "colores": {},
+  "texto": "Hierba alta, un arroyo y los primeros árboles. Aquí empieza el viaje.",
+  "pokemon": [
+   16,
+   17,
+   19,
+   20,
+   21,
+   22,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   129,
+   130,
+   118,
+   119,
+   60
+  ],
+  "dificultad": {
+   "vecinosPerfecta": 3,
+   "premioMision": 3,
+   "escalaRegiones": 1.0,
+   "tresBiomas": 10,
+   "misionesFrontera": false
+  }
+ },
+ {
+  "id": "bosque-verde",
+  "nombre": "Bosque Verde",
+  "biomas": [
+   "bosque",
+   "pradera",
+   "cueva"
+  ],
+  "inicio": "bosque",
+  "pesos": {
+   "bosque": 4,
+   "pradera": 2,
+   "cueva": 2
+  },
+  "mazo": 36,
+  "noche": true,
+  "objetivo": 11,
+  "fondo": "#DDE8D2",
+  "patron": "hojas",
+  "colores": {
+   "bosque": "#2F7D4A",
+   "pradera": "#8FCB5E"
+  },
+  "texto": "Un bosque espeso donde la luz llega a ratos. De noche salen los bichos.",
+  "pokemon": [
+   1,
+   2,
+   3,
+   43,
+   44,
+   45,
+   46,
+   47,
+   48,
+   49,
+   70,
+   71,
+   69,
+   102,
+   18,
+   84,
+   85,
+   27,
+   28,
+   29,
+   30,
+   32,
+   33,
+   151
+  ],
+  "dificultad": {
+   "vecinosPerfecta": 3,
+   "premioMision": 3,
+   "escalaRegiones": 1.1,
+   "tresBiomas": 15,
+   "misionesFrontera": false
+  }
+ },
+ {
+  "id": "monte-moon",
+  "nombre": "Monte Moon",
+  "biomas": [
+   "cueva",
+   "montana",
+   "pradera"
+  ],
+  "inicio": "montana",
+  "pesos": {
+   "cueva": 5,
+   "montana": 2,
+   "pradera": 2
+  },
+  "mazo": 36,
+  "noche": true,
+  "objetivo": 12,
+  "fondo": "#2E2B3F",
+  "patron": "estrellas",
+  "colores": {
+   "cueva": "#6A4E5E",
+   "montana": "#8C8FA6",
+   "pradera": "#9CC77A"
+  },
+  "texto": "Túneles bajo la montaña y un claro donde dicen que bajan las estrellas.",
+  "pokemon": [
+   41,
+   42,
+   50,
+   51,
+   23,
+   24,
+   31,
+   34,
+   74,
+   75,
+   66,
+   67,
+   68,
+   95,
+   76,
+   35,
+   36,
+   39,
+   40,
+   52,
+   53,
+   150
+  ],
+  "dificultad": {
+   "vecinosPerfecta": 3,
+   "premioMision": 2,
+   "escalaRegiones": 1.15,
+   "tresBiomas": 15,
+   "misionesFrontera": true
+  }
+ },
+ {
+  "id": "ciudad-azulona",
+  "nombre": "Ciudad Azulona",
+  "biomas": [
+   "ciudad",
+   "pradera",
+   "agua"
+  ],
+  "inicio": "ciudad",
+  "pesos": {
+   "ciudad": 5,
+   "pradera": 2,
+   "agua": 2
+  },
+  "mazo": 36,
+  "noche": true,
+  "objetivo": 11,
+  "fondo": "#E9E2D6",
+  "patron": "adoquines",
+  "colores": {
+   "ciudad": "#E8BE6A"
+  },
+  "texto": "Calles, jardines y un canal. Por la noche la ciudad no duerme.",
+  "pokemon": [
+   25,
+   26,
+   81,
+   82,
+   100,
+   101,
+   96,
+   97,
+   122,
+   137,
+   135,
+   133,
+   108,
+   79,
+   80,
+   54,
+   55,
+   147,
+   148,
+   134,
+   145
+  ],
+  "dificultad": {
+   "vecinosPerfecta": 3,
+   "premioMision": 2,
+   "escalaRegiones": 1.2,
+   "tresBiomas": 20,
+   "misionesFrontera": true
+  }
+ },
+ {
+  "id": "islas-espuma",
+  "nombre": "Islas Espuma",
+  "biomas": [
+   "agua",
+   "montana"
+  ],
+  "inicio": "agua",
+  "pesos": {
+   "agua": 3,
+   "montana": 3
+  },
+  "mazo": 36,
+  "noche": true,
+  "objetivo": 10,
+  "fondo": "#D6E9F2",
+  "patron": "olas",
+  "colores": {
+   "agua": "#5AA9D6",
+   "montana": "#C9D3DE"
+  },
+  "texto": "Islotes helados entre corrientes frías. Solo hay agua y roca.",
+  "pokemon": [
+   72,
+   73,
+   86,
+   87,
+   90,
+   91,
+   98,
+   99,
+   116,
+   117,
+   120,
+   121,
+   131,
+   61,
+   62,
+   124,
+   56,
+   57,
+   138,
+   140,
+   144
+  ],
+  "dificultad": {
+   "vecinosPerfecta": 4,
+   "premioMision": 2,
+   "escalaRegiones": 1.25,
+   "tresBiomas": 20,
+   "misionesFrontera": true
+  }
+ },
+ {
+  "id": "pueblo-lavanda",
+  "nombre": "Pueblo Lavanda",
+  "biomas": [
+   "cueva",
+   "ciudad",
+   "bosque"
+  ],
+  "inicio": "ciudad",
+  "pesos": {
+   "cueva": 3,
+   "ciudad": 3,
+   "bosque": 2
+  },
+  "mazo": 40,
+  "noche": true,
+  "objetivo": 10,
+  "fondo": "#DCD3E6",
+  "patron": "niebla",
+  "colores": {
+   "cueva": "#6E5870",
+   "ciudad": "#D9C6A0",
+   "bosque": "#4E7D63"
+  },
+  "texto": "Un pueblo tranquilo con una torre muy vieja. De noche cuesta ver quién pasea.",
+  "pokemon": [
+   92,
+   93,
+   94,
+   104,
+   105,
+   88,
+   89,
+   109,
+   110,
+   63,
+   64,
+   65,
+   132,
+   125,
+   114,
+   103
+  ],
+  "dificultad": {
+   "vecinosPerfecta": 4,
+   "premioMision": 2,
+   "escalaRegiones": 1.3,
+   "tresBiomas": 25,
+   "misionesFrontera": true
+  }
+ },
+ {
+  "id": "isla-canela",
+  "nombre": "Isla Canela",
+  "biomas": [
+   "volcan",
+   "montana",
+   "agua"
+  ],
+  "inicio": "volcan",
+  "pesos": {
+   "volcan": 4,
+   "montana": 2,
+   "agua": 2
+  },
+  "mazo": 42,
+  "noche": false,
+  "objetivo": 9,
+  "fondo": "#F2E0D0",
+  "patron": "ceniza",
+  "colores": {
+   "montana": "#A7988F"
+  },
+  "texto": "Un volcán en mitad del mar, con fósiles en sus laderas.",
+  "pokemon": [
+   37,
+   38,
+   58,
+   59,
+   4,
+   5,
+   6,
+   126,
+   136,
+   77,
+   78,
+   111,
+   112,
+   106,
+   107,
+   141,
+   142,
+   139,
+   7,
+   8,
+   9,
+   146
+  ],
+  "dificultad": {
+   "vecinosPerfecta": 4,
+   "premioMision": 1,
+   "escalaRegiones": 1.35,
+   "tresBiomas": 25,
+   "misionesFrontera": true
+  }
+ },
+ {
+  "id": "meseta-anil",
+  "nombre": "Meseta Añil",
+  "biomas": [
+   "pradera",
+   "bosque",
+   "agua",
+   "montana",
+   "cueva",
+   "volcan",
+   "ciudad"
+  ],
+  "inicio": "pradera",
+  "pesos": {},
+  "mazo": 50,
+  "noche": true,
+  "objetivo": 10,
+  "fondo": "#E4E7F0",
+  "patron": "puntos",
+  "colores": {},
+  "texto": "El final del camino: todos los paisajes juntos y los Pokémon más fuertes de Kanto.",
+  "pokemon": [
+   83,
+   115,
+   128,
+   143,
+   113,
+   123,
+   127,
+   149,
+   131,
+   134,
+   9,
+   34,
+   31,
+   105,
+   6,
+   59,
+   126,
+   65,
+   137,
+   125,
+   68,
+   142,
+   3,
+   12,
+   18
+  ],
+  "dificultad": {
+   "vecinosPerfecta": 4,
+   "premioMision": 1,
+   "escalaRegiones": 1.4,
+   "tresBiomas": 30,
+   "misionesFrontera": true
+  }
+ }
+]

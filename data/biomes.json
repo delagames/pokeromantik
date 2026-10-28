@@ -1,0 +1,9 @@
+{
+  "pradera": {"nombre": "Pradera", "color": "#A9D96E", "tipos": ["normal"], "detalle": "hierba"},
+  "bosque": {"nombre": "Bosque", "color": "#3E8E58", "tipos": ["grass", "bug"], "detalle": "pinos"},
+  "agua": {"nombre": "Agua", "color": "#4EA6DD", "tipos": ["water"], "detalle": "ondas"},
+  "montana": {"nombre": "Montaña", "color": "#9DA4B0", "tipos": ["rock", "fighting"], "detalle": "rocas"},
+  "cueva": {"nombre": "Cueva", "color": "#7B5A47", "tipos": ["ground", "poison"], "detalle": "agujeros"},
+  "volcan": {"nombre": "Volcán", "color": "#E2653F", "tipos": ["fire"], "detalle": "grietas"},
+  "ciudad": {"nombre": "Ciudad", "color": "#EACB7A", "tipos": ["electric", "psychic"], "detalle": "casas"}
+}

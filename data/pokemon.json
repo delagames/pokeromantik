@@ -1,0 +1,1920 @@
+[
+ {
+  "id": 1,
+  "nombre": "Bulbasaur",
+  "tipos": [
+   "grass",
+   "poison"
+  ],
+  "bioma": "bosque",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0001"
+ },
+ {
+  "id": 2,
+  "nombre": "Ivysaur",
+  "tipos": [
+   "grass",
+   "poison"
+  ],
+  "bioma": "bosque",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0002"
+ },
+ {
+  "id": 3,
+  "nombre": "Venusaur",
+  "tipos": [
+   "grass",
+   "poison"
+  ],
+  "bioma": "bosque",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0003"
+ },
+ {
+  "id": 4,
+  "nombre": "Charmander",
+  "tipos": [
+   "fire"
+  ],
+  "bioma": "volcan",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0004"
+ },
+ {
+  "id": 5,
+  "nombre": "Charmeleon",
+  "tipos": [
+   "fire"
+  ],
+  "bioma": "volcan",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0005"
+ },
+ {
+  "id": 6,
+  "nombre": "Charizard",
+  "tipos": [
+   "fire",
+   "flying"
+  ],
+  "bioma": "volcan",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0006"
+ },
+ {
+  "id": 7,
+  "nombre": "Squirtle",
+  "tipos": [
+   "water"
+  ],
+  "bioma": "agua",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0007"
+ },
+ {
+  "id": 8,
+  "nombre": "Wartortle",
+  "tipos": [
+   "water"
+  ],
+  "bioma": "agua",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0008"
+ },
+ {
+  "id": 9,
+  "nombre": "Blastoise",
+  "tipos": [
+   "water"
+  ],
+  "bioma": "agua",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0009"
+ },
+ {
+  "id": 10,
+  "nombre": "Caterpie",
+  "tipos": [
+   "bug"
+  ],
+  "bioma": "bosque",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0010"
+ },
+ {
+  "id": 11,
+  "nombre": "Metapod",
+  "tipos": [
+   "bug"
+  ],
+  "bioma": "bosque",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0011"
+ },
+ {
+  "id": 12,
+  "nombre": "Butterfree",
+  "tipos": [
+   "bug",
+   "flying"
+  ],
+  "bioma": "bosque",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0012"
+ },
+ {
+  "id": 13,
+  "nombre": "Weedle",
+  "tipos": [
+   "bug",
+   "poison"
+  ],
+  "bioma": "bosque",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0013"
+ },
+ {
+  "id": 14,
+  "nombre": "Kakuna",
+  "tipos": [
+   "bug",
+   "poison"
+  ],
+  "bioma": "bosque",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0014"
+ },
+ {
+  "id": 15,
+  "nombre": "Beedrill",
+  "tipos": [
+   "bug",
+   "poison"
+  ],
+  "bioma": "bosque",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0015"
+ },
+ {
+  "id": 16,
+  "nombre": "Pidgey",
+  "tipos": [
+   "normal",
+   "flying"
+  ],
+  "bioma": "pradera",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0016"
+ },
+ {
+  "id": 17,
+  "nombre": "Pidgeotto",
+  "tipos": [
+   "normal",
+   "flying"
+  ],
+  "bioma": "pradera",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0017"
+ },
+ {
+  "id": 18,
+  "nombre": "Pidgeot",
+  "tipos": [
+   "normal",
+   "flying"
+  ],
+  "bioma": "pradera",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0018"
+ },
+ {
+  "id": 19,
+  "nombre": "Rattata",
+  "tipos": [
+   "normal"
+  ],
+  "bioma": "pradera",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0019"
+ },
+ {
+  "id": 20,
+  "nombre": "Raticate",
+  "tipos": [
+   "normal"
+  ],
+  "bioma": "pradera",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0020"
+ },
+ {
+  "id": 21,
+  "nombre": "Spearow",
+  "tipos": [
+   "normal",
+   "flying"
+  ],
+  "bioma": "pradera",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0021"
+ },
+ {
+  "id": 22,
+  "nombre": "Fearow",
+  "tipos": [
+   "normal",
+   "flying"
+  ],
+  "bioma": "pradera",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0022"
+ },
+ {
+  "id": 23,
+  "nombre": "Ekans",
+  "tipos": [
+   "poison"
+  ],
+  "bioma": "cueva",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0023"
+ },
+ {
+  "id": 24,
+  "nombre": "Arbok",
+  "tipos": [
+   "poison"
+  ],
+  "bioma": "cueva",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0024"
+ },
+ {
+  "id": 25,
+  "nombre": "Pikachu",
+  "tipos": [
+   "electric"
+  ],
+  "bioma": "ciudad",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0025"
+ },
+ {
+  "id": 26,
+  "nombre": "Raichu",
+  "tipos": [
+   "electric"
+  ],
+  "bioma": "ciudad",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0026"
+ },
+ {
+  "id": 27,
+  "nombre": "Sandshrew",
+  "tipos": [
+   "ground"
+  ],
+  "bioma": "cueva",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0027"
+ },
+ {
+  "id": 28,
+  "nombre": "Sandslash",
+  "tipos": [
+   "ground"
+  ],
+  "bioma": "cueva",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0028"
+ },
+ {
+  "id": 29,
+  "nombre": "Nidoran♀",
+  "tipos": [
+   "poison"
+  ],
+  "bioma": "cueva",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0029"
+ },
+ {
+  "id": 30,
+  "nombre": "Nidorina",
+  "tipos": [
+   "poison"
+  ],
+  "bioma": "cueva",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0030"
+ },
+ {
+  "id": 31,
+  "nombre": "Nidoqueen",
+  "tipos": [
+   "poison",
+   "ground"
+  ],
+  "bioma": "cueva",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0031"
+ },
+ {
+  "id": 32,
+  "nombre": "Nidoran♂",
+  "tipos": [
+   "poison"
+  ],
+  "bioma": "cueva",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0032"
+ },
+ {
+  "id": 33,
+  "nombre": "Nidorino",
+  "tipos": [
+   "poison"
+  ],
+  "bioma": "cueva",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0033"
+ },
+ {
+  "id": 34,
+  "nombre": "Nidoking",
+  "tipos": [
+   "poison",
+   "ground"
+  ],
+  "bioma": "cueva",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0034"
+ },
+ {
+  "id": 35,
+  "nombre": "Clefairy",
+  "tipos": [
+   "fairy"
+  ],
+  "bioma": "pradera",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": [
+   "pradera",
+   "ciudad"
+  ],
+  "sprites": "0035"
+ },
+ {
+  "id": 36,
+  "nombre": "Clefable",
+  "tipos": [
+   "fairy"
+  ],
+  "bioma": "pradera",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0036"
+ },
+ {
+  "id": 37,
+  "nombre": "Vulpix",
+  "tipos": [
+   "fire"
+  ],
+  "bioma": "volcan",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0037"
+ },
+ {
+  "id": 38,
+  "nombre": "Ninetales",
+  "tipos": [
+   "fire"
+  ],
+  "bioma": "volcan",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0038"
+ },
+ {
+  "id": 39,
+  "nombre": "Jigglypuff",
+  "tipos": [
+   "normal",
+   "fairy"
+  ],
+  "bioma": "pradera",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": [
+   "pradera",
+   "ciudad"
+  ],
+  "sprites": "0039"
+ },
+ {
+  "id": 40,
+  "nombre": "Wigglytuff",
+  "tipos": [
+   "normal",
+   "fairy"
+  ],
+  "bioma": "pradera",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0040"
+ },
+ {
+  "id": 41,
+  "nombre": "Zubat",
+  "tipos": [
+   "poison",
+   "flying"
+  ],
+  "bioma": "cueva",
+  "rareza": 1,
+  "nocturno": true,
+  "frontera": null,
+  "sprites": "0041"
+ },
+ {
+  "id": 42,
+  "nombre": "Golbat",
+  "tipos": [
+   "poison",
+   "flying"
+  ],
+  "bioma": "cueva",
+  "rareza": 2,
+  "nocturno": true,
+  "frontera": null,
+  "sprites": "0042"
+ },
+ {
+  "id": 43,
+  "nombre": "Oddish",
+  "tipos": [
+   "grass",
+   "poison"
+  ],
+  "bioma": "bosque",
+  "rareza": 1,
+  "nocturno": true,
+  "frontera": null,
+  "sprites": "0043"
+ },
+ {
+  "id": 44,
+  "nombre": "Gloom",
+  "tipos": [
+   "grass",
+   "poison"
+  ],
+  "bioma": "bosque",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0044"
+ },
+ {
+  "id": 45,
+  "nombre": "Vileplume",
+  "tipos": [
+   "grass",
+   "poison"
+  ],
+  "bioma": "bosque",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0045"
+ },
+ {
+  "id": 46,
+  "nombre": "Paras",
+  "tipos": [
+   "bug",
+   "grass"
+  ],
+  "bioma": "bosque",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0046"
+ },
+ {
+  "id": 47,
+  "nombre": "Parasect",
+  "tipos": [
+   "bug",
+   "grass"
+  ],
+  "bioma": "bosque",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0047"
+ },
+ {
+  "id": 48,
+  "nombre": "Venonat",
+  "tipos": [
+   "bug",
+   "poison"
+  ],
+  "bioma": "bosque",
+  "rareza": 1,
+  "nocturno": true,
+  "frontera": null,
+  "sprites": "0048"
+ },
+ {
+  "id": 49,
+  "nombre": "Venomoth",
+  "tipos": [
+   "bug",
+   "poison"
+  ],
+  "bioma": "bosque",
+  "rareza": 2,
+  "nocturno": true,
+  "frontera": null,
+  "sprites": "0049"
+ },
+ {
+  "id": 50,
+  "nombre": "Diglett",
+  "tipos": [
+   "ground"
+  ],
+  "bioma": "cueva",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0050"
+ },
+ {
+  "id": 51,
+  "nombre": "Dugtrio",
+  "tipos": [
+   "ground"
+  ],
+  "bioma": "cueva",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0051"
+ },
+ {
+  "id": 52,
+  "nombre": "Meowth",
+  "tipos": [
+   "normal"
+  ],
+  "bioma": "pradera",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0052"
+ },
+ {
+  "id": 53,
+  "nombre": "Persian",
+  "tipos": [
+   "normal"
+  ],
+  "bioma": "pradera",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0053"
+ },
+ {
+  "id": 54,
+  "nombre": "Psyduck",
+  "tipos": [
+   "water"
+  ],
+  "bioma": "agua",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0054"
+ },
+ {
+  "id": 55,
+  "nombre": "Golduck",
+  "tipos": [
+   "water"
+  ],
+  "bioma": "agua",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0055"
+ },
+ {
+  "id": 56,
+  "nombre": "Mankey",
+  "tipos": [
+   "fighting"
+  ],
+  "bioma": "montana",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0056"
+ },
+ {
+  "id": 57,
+  "nombre": "Primeape",
+  "tipos": [
+   "fighting"
+  ],
+  "bioma": "montana",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0057"
+ },
+ {
+  "id": 58,
+  "nombre": "Growlithe",
+  "tipos": [
+   "fire"
+  ],
+  "bioma": "volcan",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0058"
+ },
+ {
+  "id": 59,
+  "nombre": "Arcanine",
+  "tipos": [
+   "fire"
+  ],
+  "bioma": "volcan",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0059"
+ },
+ {
+  "id": 60,
+  "nombre": "Poliwag",
+  "tipos": [
+   "water"
+  ],
+  "bioma": "agua",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": [
+   "bosque",
+   "agua"
+  ],
+  "sprites": "0060"
+ },
+ {
+  "id": 61,
+  "nombre": "Poliwhirl",
+  "tipos": [
+   "water"
+  ],
+  "bioma": "agua",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0061"
+ },
+ {
+  "id": 62,
+  "nombre": "Poliwrath",
+  "tipos": [
+   "water",
+   "fighting"
+  ],
+  "bioma": "agua",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0062"
+ },
+ {
+  "id": 63,
+  "nombre": "Abra",
+  "tipos": [
+   "psychic"
+  ],
+  "bioma": "ciudad",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0063"
+ },
+ {
+  "id": 64,
+  "nombre": "Kadabra",
+  "tipos": [
+   "psychic"
+  ],
+  "bioma": "ciudad",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0064"
+ },
+ {
+  "id": 65,
+  "nombre": "Alakazam",
+  "tipos": [
+   "psychic"
+  ],
+  "bioma": "ciudad",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0065"
+ },
+ {
+  "id": 66,
+  "nombre": "Machop",
+  "tipos": [
+   "fighting"
+  ],
+  "bioma": "montana",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0066"
+ },
+ {
+  "id": 67,
+  "nombre": "Machoke",
+  "tipos": [
+   "fighting"
+  ],
+  "bioma": "montana",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0067"
+ },
+ {
+  "id": 68,
+  "nombre": "Machamp",
+  "tipos": [
+   "fighting"
+  ],
+  "bioma": "montana",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0068"
+ },
+ {
+  "id": 69,
+  "nombre": "Bellsprout",
+  "tipos": [
+   "grass",
+   "poison"
+  ],
+  "bioma": "bosque",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": [
+   "bosque",
+   "pradera"
+  ],
+  "sprites": "0069"
+ },
+ {
+  "id": 70,
+  "nombre": "Weepinbell",
+  "tipos": [
+   "grass",
+   "poison"
+  ],
+  "bioma": "bosque",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0070"
+ },
+ {
+  "id": 71,
+  "nombre": "Victreebel",
+  "tipos": [
+   "grass",
+   "poison"
+  ],
+  "bioma": "bosque",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0071"
+ },
+ {
+  "id": 72,
+  "nombre": "Tentacool",
+  "tipos": [
+   "water",
+   "poison"
+  ],
+  "bioma": "agua",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0072"
+ },
+ {
+  "id": 73,
+  "nombre": "Tentacruel",
+  "tipos": [
+   "water",
+   "poison"
+  ],
+  "bioma": "agua",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0073"
+ },
+ {
+  "id": 74,
+  "nombre": "Geodude",
+  "tipos": [
+   "rock",
+   "ground"
+  ],
+  "bioma": "montana",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0074"
+ },
+ {
+  "id": 75,
+  "nombre": "Graveler",
+  "tipos": [
+   "rock",
+   "ground"
+  ],
+  "bioma": "montana",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0075"
+ },
+ {
+  "id": 76,
+  "nombre": "Golem",
+  "tipos": [
+   "rock",
+   "ground"
+  ],
+  "bioma": "montana",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": [
+   "cueva",
+   "montana"
+  ],
+  "sprites": "0076"
+ },
+ {
+  "id": 77,
+  "nombre": "Ponyta",
+  "tipos": [
+   "fire"
+  ],
+  "bioma": "volcan",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": [
+   "volcan",
+   "montana"
+  ],
+  "sprites": "0077"
+ },
+ {
+  "id": 78,
+  "nombre": "Rapidash",
+  "tipos": [
+   "fire"
+  ],
+  "bioma": "volcan",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": [
+   "volcan",
+   "montana"
+  ],
+  "sprites": "0078"
+ },
+ {
+  "id": 79,
+  "nombre": "Slowpoke",
+  "tipos": [
+   "water",
+   "psychic"
+  ],
+  "bioma": "agua",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": [
+   "agua",
+   "ciudad"
+  ],
+  "sprites": "0079"
+ },
+ {
+  "id": 80,
+  "nombre": "Slowbro",
+  "tipos": [
+   "water",
+   "psychic"
+  ],
+  "bioma": "agua",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0080"
+ },
+ {
+  "id": 81,
+  "nombre": "Magnemite",
+  "tipos": [
+   "electric",
+   "steel"
+  ],
+  "bioma": "ciudad",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0081"
+ },
+ {
+  "id": 82,
+  "nombre": "Magneton",
+  "tipos": [
+   "electric",
+   "steel"
+  ],
+  "bioma": "ciudad",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0082"
+ },
+ {
+  "id": 83,
+  "nombre": "Farfetch’d",
+  "tipos": [
+   "normal",
+   "flying"
+  ],
+  "bioma": "pradera",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0083"
+ },
+ {
+  "id": 84,
+  "nombre": "Doduo",
+  "tipos": [
+   "normal",
+   "flying"
+  ],
+  "bioma": "pradera",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0084"
+ },
+ {
+  "id": 85,
+  "nombre": "Dodrio",
+  "tipos": [
+   "normal",
+   "flying"
+  ],
+  "bioma": "pradera",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0085"
+ },
+ {
+  "id": 86,
+  "nombre": "Seel",
+  "tipos": [
+   "water"
+  ],
+  "bioma": "agua",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0086"
+ },
+ {
+  "id": 87,
+  "nombre": "Dewgong",
+  "tipos": [
+   "water",
+   "ice"
+  ],
+  "bioma": "agua",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0087"
+ },
+ {
+  "id": 88,
+  "nombre": "Grimer",
+  "tipos": [
+   "poison"
+  ],
+  "bioma": "cueva",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0088"
+ },
+ {
+  "id": 89,
+  "nombre": "Muk",
+  "tipos": [
+   "poison"
+  ],
+  "bioma": "cueva",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0089"
+ },
+ {
+  "id": 90,
+  "nombre": "Shellder",
+  "tipos": [
+   "water"
+  ],
+  "bioma": "agua",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0090"
+ },
+ {
+  "id": 91,
+  "nombre": "Cloyster",
+  "tipos": [
+   "water",
+   "ice"
+  ],
+  "bioma": "agua",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0091"
+ },
+ {
+  "id": 92,
+  "nombre": "Gastly",
+  "tipos": [
+   "ghost",
+   "poison"
+  ],
+  "bioma": "cueva",
+  "rareza": 1,
+  "nocturno": true,
+  "frontera": null,
+  "sprites": "0092"
+ },
+ {
+  "id": 93,
+  "nombre": "Haunter",
+  "tipos": [
+   "ghost",
+   "poison"
+  ],
+  "bioma": "cueva",
+  "rareza": 2,
+  "nocturno": true,
+  "frontera": null,
+  "sprites": "0093"
+ },
+ {
+  "id": 94,
+  "nombre": "Gengar",
+  "tipos": [
+   "ghost",
+   "poison"
+  ],
+  "bioma": "cueva",
+  "rareza": 3,
+  "nocturno": true,
+  "frontera": null,
+  "sprites": "0094"
+ },
+ {
+  "id": 95,
+  "nombre": "Onix",
+  "tipos": [
+   "rock",
+   "ground"
+  ],
+  "bioma": "montana",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": [
+   "cueva",
+   "montana"
+  ],
+  "sprites": "0095"
+ },
+ {
+  "id": 96,
+  "nombre": "Drowzee",
+  "tipos": [
+   "psychic"
+  ],
+  "bioma": "ciudad",
+  "rareza": 1,
+  "nocturno": true,
+  "frontera": null,
+  "sprites": "0096"
+ },
+ {
+  "id": 97,
+  "nombre": "Hypno",
+  "tipos": [
+   "psychic"
+  ],
+  "bioma": "ciudad",
+  "rareza": 2,
+  "nocturno": true,
+  "frontera": null,
+  "sprites": "0097"
+ },
+ {
+  "id": 98,
+  "nombre": "Krabby",
+  "tipos": [
+   "water"
+  ],
+  "bioma": "agua",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0098"
+ },
+ {
+  "id": 99,
+  "nombre": "Kingler",
+  "tipos": [
+   "water"
+  ],
+  "bioma": "agua",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0099"
+ },
+ {
+  "id": 100,
+  "nombre": "Voltorb",
+  "tipos": [
+   "electric"
+  ],
+  "bioma": "ciudad",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0100"
+ },
+ {
+  "id": 101,
+  "nombre": "Electrode",
+  "tipos": [
+   "electric"
+  ],
+  "bioma": "ciudad",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0101"
+ },
+ {
+  "id": 102,
+  "nombre": "Exeggcute",
+  "tipos": [
+   "grass",
+   "psychic"
+  ],
+  "bioma": "bosque",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": [
+   "bosque",
+   "pradera"
+  ],
+  "sprites": "0102"
+ },
+ {
+  "id": 103,
+  "nombre": "Exeggutor",
+  "tipos": [
+   "grass",
+   "psychic"
+  ],
+  "bioma": "bosque",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0103"
+ },
+ {
+  "id": 104,
+  "nombre": "Cubone",
+  "tipos": [
+   "ground"
+  ],
+  "bioma": "cueva",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0104"
+ },
+ {
+  "id": 105,
+  "nombre": "Marowak",
+  "tipos": [
+   "ground"
+  ],
+  "bioma": "cueva",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0105"
+ },
+ {
+  "id": 106,
+  "nombre": "Hitmonlee",
+  "tipos": [
+   "fighting"
+  ],
+  "bioma": "montana",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0106"
+ },
+ {
+  "id": 107,
+  "nombre": "Hitmonchan",
+  "tipos": [
+   "fighting"
+  ],
+  "bioma": "montana",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0107"
+ },
+ {
+  "id": 108,
+  "nombre": "Lickitung",
+  "tipos": [
+   "normal"
+  ],
+  "bioma": "pradera",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0108"
+ },
+ {
+  "id": 109,
+  "nombre": "Koffing",
+  "tipos": [
+   "poison"
+  ],
+  "bioma": "cueva",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0109"
+ },
+ {
+  "id": 110,
+  "nombre": "Weezing",
+  "tipos": [
+   "poison"
+  ],
+  "bioma": "cueva",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0110"
+ },
+ {
+  "id": 111,
+  "nombre": "Rhyhorn",
+  "tipos": [
+   "ground",
+   "rock"
+  ],
+  "bioma": "montana",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0111"
+ },
+ {
+  "id": 112,
+  "nombre": "Rhydon",
+  "tipos": [
+   "ground",
+   "rock"
+  ],
+  "bioma": "montana",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0112"
+ },
+ {
+  "id": 113,
+  "nombre": "Chansey",
+  "tipos": [
+   "normal"
+  ],
+  "bioma": "pradera",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0113"
+ },
+ {
+  "id": 114,
+  "nombre": "Tangela",
+  "tipos": [
+   "grass"
+  ],
+  "bioma": "bosque",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0114"
+ },
+ {
+  "id": 115,
+  "nombre": "Kangaskhan",
+  "tipos": [
+   "normal"
+  ],
+  "bioma": "pradera",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0115"
+ },
+ {
+  "id": 116,
+  "nombre": "Horsea",
+  "tipos": [
+   "water"
+  ],
+  "bioma": "agua",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0116"
+ },
+ {
+  "id": 117,
+  "nombre": "Seadra",
+  "tipos": [
+   "water"
+  ],
+  "bioma": "agua",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0117"
+ },
+ {
+  "id": 118,
+  "nombre": "Goldeen",
+  "tipos": [
+   "water"
+  ],
+  "bioma": "agua",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0118"
+ },
+ {
+  "id": 119,
+  "nombre": "Seaking",
+  "tipos": [
+   "water"
+  ],
+  "bioma": "agua",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0119"
+ },
+ {
+  "id": 120,
+  "nombre": "Staryu",
+  "tipos": [
+   "water"
+  ],
+  "bioma": "agua",
+  "rareza": 1,
+  "nocturno": true,
+  "frontera": null,
+  "sprites": "0120"
+ },
+ {
+  "id": 121,
+  "nombre": "Starmie",
+  "tipos": [
+   "water",
+   "psychic"
+  ],
+  "bioma": "agua",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0121"
+ },
+ {
+  "id": 122,
+  "nombre": "Mr. Mime",
+  "tipos": [
+   "psychic",
+   "fairy"
+  ],
+  "bioma": "ciudad",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0122"
+ },
+ {
+  "id": 123,
+  "nombre": "Scyther",
+  "tipos": [
+   "bug",
+   "flying"
+  ],
+  "bioma": "bosque",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0123"
+ },
+ {
+  "id": 124,
+  "nombre": "Jynx",
+  "tipos": [
+   "ice",
+   "psychic"
+  ],
+  "bioma": "montana",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0124"
+ },
+ {
+  "id": 125,
+  "nombre": "Electabuzz",
+  "tipos": [
+   "electric"
+  ],
+  "bioma": "ciudad",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0125"
+ },
+ {
+  "id": 126,
+  "nombre": "Magmar",
+  "tipos": [
+   "fire"
+  ],
+  "bioma": "volcan",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0126"
+ },
+ {
+  "id": 127,
+  "nombre": "Pinsir",
+  "tipos": [
+   "bug"
+  ],
+  "bioma": "bosque",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0127"
+ },
+ {
+  "id": 128,
+  "nombre": "Tauros",
+  "tipos": [
+   "normal"
+  ],
+  "bioma": "pradera",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0128"
+ },
+ {
+  "id": 129,
+  "nombre": "Magikarp",
+  "tipos": [
+   "water"
+  ],
+  "bioma": "agua",
+  "rareza": 1,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0129"
+ },
+ {
+  "id": 130,
+  "nombre": "Gyarados",
+  "tipos": [
+   "water",
+   "flying"
+  ],
+  "bioma": "agua",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0130"
+ },
+ {
+  "id": 131,
+  "nombre": "Lapras",
+  "tipos": [
+   "water",
+   "ice"
+  ],
+  "bioma": "agua",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0131"
+ },
+ {
+  "id": 132,
+  "nombre": "Ditto",
+  "tipos": [
+   "normal"
+  ],
+  "bioma": "ciudad",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0132"
+ },
+ {
+  "id": 133,
+  "nombre": "Eevee",
+  "tipos": [
+   "normal"
+  ],
+  "bioma": "pradera",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0133"
+ },
+ {
+  "id": 134,
+  "nombre": "Vaporeon",
+  "tipos": [
+   "water"
+  ],
+  "bioma": "agua",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0134"
+ },
+ {
+  "id": 135,
+  "nombre": "Jolteon",
+  "tipos": [
+   "electric"
+  ],
+  "bioma": "ciudad",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0135"
+ },
+ {
+  "id": 136,
+  "nombre": "Flareon",
+  "tipos": [
+   "fire"
+  ],
+  "bioma": "volcan",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0136"
+ },
+ {
+  "id": 137,
+  "nombre": "Porygon",
+  "tipos": [
+   "normal"
+  ],
+  "bioma": "ciudad",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0137"
+ },
+ {
+  "id": 138,
+  "nombre": "Omanyte",
+  "tipos": [
+   "rock",
+   "water"
+  ],
+  "bioma": "agua",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": [
+   "montana",
+   "agua"
+  ],
+  "sprites": "0138"
+ },
+ {
+  "id": 139,
+  "nombre": "Omastar",
+  "tipos": [
+   "rock",
+   "water"
+  ],
+  "bioma": "agua",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0139"
+ },
+ {
+  "id": 140,
+  "nombre": "Kabuto",
+  "tipos": [
+   "rock",
+   "water"
+  ],
+  "bioma": "montana",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": [
+   "montana",
+   "agua"
+  ],
+  "sprites": "0140"
+ },
+ {
+  "id": 141,
+  "nombre": "Kabutops",
+  "tipos": [
+   "rock",
+   "water"
+  ],
+  "bioma": "montana",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0141"
+ },
+ {
+  "id": 142,
+  "nombre": "Aerodactyl",
+  "tipos": [
+   "rock",
+   "flying"
+  ],
+  "bioma": "montana",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0142"
+ },
+ {
+  "id": 143,
+  "nombre": "Snorlax",
+  "tipos": [
+   "normal"
+  ],
+  "bioma": "pradera",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0143"
+ },
+ {
+  "id": 144,
+  "nombre": "Articuno",
+  "tipos": [
+   "ice",
+   "flying"
+  ],
+  "bioma": "montana",
+  "rareza": 4,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0144"
+ },
+ {
+  "id": 145,
+  "nombre": "Zapdos",
+  "tipos": [
+   "electric",
+   "flying"
+  ],
+  "bioma": "ciudad",
+  "rareza": 4,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0145"
+ },
+ {
+  "id": 146,
+  "nombre": "Moltres",
+  "tipos": [
+   "fire",
+   "flying"
+  ],
+  "bioma": "volcan",
+  "rareza": 4,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0146"
+ },
+ {
+  "id": 147,
+  "nombre": "Dratini",
+  "tipos": [
+   "dragon"
+  ],
+  "bioma": "agua",
+  "rareza": 2,
+  "nocturno": false,
+  "frontera": [
+   "agua",
+   "ciudad"
+  ],
+  "sprites": "0147"
+ },
+ {
+  "id": 148,
+  "nombre": "Dragonair",
+  "tipos": [
+   "dragon"
+  ],
+  "bioma": "agua",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0148"
+ },
+ {
+  "id": 149,
+  "nombre": "Dragonite",
+  "tipos": [
+   "dragon",
+   "flying"
+  ],
+  "bioma": "montana",
+  "rareza": 3,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0149"
+ },
+ {
+  "id": 150,
+  "nombre": "Mewtwo",
+  "tipos": [
+   "psychic"
+  ],
+  "bioma": "cueva",
+  "rareza": 4,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0150"
+ },
+ {
+  "id": 151,
+  "nombre": "Mew",
+  "tipos": [
+   "psychic"
+  ],
+  "bioma": "bosque",
+  "rareza": 4,
+  "nocturno": false,
+  "frontera": null,
+  "sprites": "0151"
+ }
+]

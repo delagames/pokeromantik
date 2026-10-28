@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<AnimData>
+  <ShadowSize>1</ShadowSize>
+  <Anims>
+    <Anim>
+      <Name>Walk</Name>
+      <FrameWidth>40</FrameWidth>
+      <FrameHeight>64</FrameHeight>
+      <Durations>
+        <Duration>4</Duration>
+        <Duration>5</Duration>
+        <Duration>6</Duration>
+        <Duration>4</Duration>
+        <Duration>5</Duration>
+        <Duration>6</Duration>
+      </Durations>
+    </Anim>
+    <Anim>
+      <Name>Idle</Name>
+      <FrameWidth>40</FrameWidth>
+      <FrameHeight>72</FrameHeight>
+      <Durations>
+        <Duration>40</Duration>
+        <Duration>20</Duration>
+        <Duration>4</Duration>
+        <Duration>4</Duration>
+        <Duration>4</Duration>
+        <Duration>4</Duration>
+        <Duration>4</Duration>
+        <Duration>4</Duration>
+        <Duration>4</Duration>
+        <Duration>4</Duration>
+      </Durations>
+    </Anim>
+    <Anim>
+      <Name>Sleep</Name>
+      <FrameWidth>24</FrameWidth>
+      <FrameHeight>24</FrameHeight>
+      <Durations>
+        <Duration>30</Duration>
+        <Duration>35</Duration>
+      </Durations>
+    </Anim>
+  </Anims>
+</AnimData>

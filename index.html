@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#1F2742">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Pokéromantik</title>
+  <link rel="icon" type="image/svg+xml" href="assets/logo/icono.svg">
+  <link rel="apple-touch-icon" href="assets/logo/icono-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <canvas id="board"></canvas>
+  <div id="safe-area" aria-hidden="true"></div>
+
+  <button id="menu-button" class="corner hidden" title="Menú (Escape)">☰</button>
+  <button id="undo-button" class="undo hidden" title="Deshacer la última loseta (Z)">↶ Deshacer</button>
+
+  <div id="menu" class="panel hidden">
+    <img class="start-logo" src="assets/logo/logo-principal.svg" alt="Pokéromantik, un puzle tranquilo">
+    <img class="menu-logo" src="assets/logo/logo-horizontal-transparente.svg" alt="Pokéromantik">
+    <p id="menu-progress" class="muted"></p>
+    <p id="menu-unlock" class="muted"></p>
+    <p id="menu-player" class="muted">Juegas como <strong id="menu-mote"></strong> ·
+      <button id="menu-change-mote" class="link">cambiar mote</button></p>
+    <div id="menu-top" class="menu-top"></div>
+    <div class="menu-buttons">
+      <button id="menu-continue">Continuar</button>
+      <button id="menu-route">Recorrido</button>
+      <button id="menu-new" class="secondary">Partida libre</button>
+      <button id="menu-ranking" class="secondary">Ranking</button>
+      <button id="menu-dex" class="secondary">Pokédex</button>
+      <button id="menu-gallery" class="secondary">Galería e historial</button>
+      <div class="row">
+        <button id="menu-export" class="secondary">Exportar guardado</button>
+        <button id="menu-import" class="secondary">Importar guardado</button>
+      </div>
+    </div>
+    <div class="settings">
+      <label><input id="opt-music" type="checkbox"> Música</label>
+      <label><input id="opt-sfx" type="checkbox"> Efectos</label>
+      <label><input id="opt-camera" type="checkbox"> Animaciones de cámara</label>
+    </div>
+    <p class="muted keys mouse-only">Rueda: zoom · Arrastrar: mover · R o Shift+rueda: girar · Clic: colocar · Z: deshacer · Esc: menú</p>
+    <p class="muted keys touch-only">Arrastra para mover · Pellizca para el zoom · Toca la loseta de la mano para girarla · Toca un hueco para colocarla</p>
+    <p id="menu-message" class="muted"></p>
+    <p class="thanks">Gracias a Juanjosé “el topo”</p>
+    <input id="import-file" type="file" accept=".json,application/json" hidden>
+  </div>
+
+  <div id="end-panel" class="panel hidden">
+    <h2>Fin de la partida</h2>
+    <div id="end-stage" class="hidden"></div>
+    <div id="end-stats" class="stats"></div>
+    <div id="end-ranking" class="end-ranking hidden"></div>
+    <div id="end-unlocks"></div>
+    <div id="end-pokemon" class="mon-list"></div>
+    <div class="buttons">
+      <button id="save-png" class="secondary">Guardar imagen</button>
+      <button id="view-map" class="secondary">Ver mapa</button>
+      <button id="end-route" class="secondary">Recorrido</button>
+      <button id="new-game">Nueva partida</button>
+      <button id="end-next">Siguiente pantalla</button>
+    </div>
+  </div>
+  <button id="show-summary" class="floating hidden">Resumen</button>
+
+  <div id="pokedex" class="screen hidden">
+    <header>
+      <h2>Pokédex <span id="dex-count"></span></h2>
+      <select id="dex-biome"><option value="">Todos los biomas</option></select>
+      <select id="dex-seen">
+        <option value="todos">Vistos y no vistos</option>
+        <option value="vistos">Solo vistos</option>
+        <option value="no-vistos">Solo no vistos</option>
+      </select>
+      <button id="dex-close">Cerrar</button>
+    </header>
+    <div id="dex-grid"></div>
+  </div>
+
+  <div id="recorrido" class="screen hidden">
+    <header>
+      <h2>Recorrido <span id="route-count"></span></h2>
+      <button id="route-close">Cerrar</button>
+    </header>
+    <div id="route-map"></div>
+  </div>
+
+  <div id="stage-panel" class="panel hidden" role="dialog" aria-labelledby="stage-name">
+    <h2 id="stage-name"></h2>
+    <p id="stage-text" class="muted"></p>
+    <div id="stage-biomes" class="chips"></div>
+    <ul id="stage-goals" class="goals"></ul>
+    <p id="stage-caught"></p>
+    <div id="stage-pokemon" class="stage-mons"></div>
+    <p id="stage-warning" class="muted"></p>
+    <div class="buttons">
+      <button id="stage-close" class="secondary">Volver</button>
+      <button id="stage-play">Jugar</button>
+    </div>
+  </div>
+
+  <div id="ranking" class="screen hidden">
+    <header>
+      <h2>Ranking</h2>
+      <select id="ranking-select" aria-label="Qué ranking ver"></select>
+      <button id="ranking-close">Cerrar</button>
+    </header>
+    <div class="ranking-body">
+      <p id="ranking-status" class="muted"></p>
+      <ol id="ranking-list" class="ranking-list"></ol>
+      <p id="ranking-you" class="muted"></p>
+    </div>
+  </div>
+
+  <div id="modal-backdrop" class="backdrop hidden"></div>
+  <div id="mote-panel" class="panel hidden" role="dialog" aria-labelledby="mote-title">
+    <h2 id="mote-title">¿Cómo te llamamos?</h2>
+    <p class="muted">Elige un mote para el ranking. Lo verá todo el que juegue.</p>
+    <form id="mote-form">
+      <input id="mote-input" maxlength="16" autocomplete="nickname" placeholder="Tu mote" aria-label="Mote">
+      <p id="mote-error" class="error"></p>
+      <div class="buttons">
+        <button type="button" id="mote-cancel" class="secondary">Cancelar</button>
+        <button type="submit" id="mote-save">Guardar</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="gallery" class="screen hidden">
+    <header>
+      <h2>Galería</h2>
+      <button id="gallery-close">Cerrar</button>
+    </header>
+    <div id="gallery-grid"></div>
+    <h3>Historial de partidas</h3>
+    <table id="history"><thead><tr><th>Fecha</th><th>Pantalla</th><th>Puntos</th><th>Losetas</th><th>Pokémon</th></tr></thead><tbody></tbody></table>
+  </div>
+
+  <!-- Se oculta desde main.js. Si sigue visible, los módulos ES no han cargado
+       (pasa al abrir index.html con doble clic en Chrome/Edge). -->
+  <div id="server-warning">
+    <p><strong>Pokéromantik necesita un servidor local.</strong></p>
+    <p>En la carpeta del juego ejecuta <code>python -m http.server 8000</code>
+       (o doble clic en <code>servir.bat</code>) y abre
+       <code>http://localhost:8000</code>.</p>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
