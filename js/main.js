@@ -3,7 +3,7 @@
 import { HEX_SIZE, hexKey, hexToPixel, pixelToHex, tracePath } from './hex.js';
 import { rotateSides } from './deck.js';
 import { Game } from './game.js';
-import { drawTile, setBiomes } from './tiles.js';
+import { drawSeams, drawTile, setBiomes } from './tiles.js';
 import { drawHand, hitHand, drawScore, drawGoal, drawMissionBadge } from './hud.js';
 import {
   drawPokemon, pokemonInfo, pokemonPortrait, setPokemonData, updateNightVisitors, updatePokemon,
@@ -1143,6 +1143,7 @@ function drawWorld(c, { interactive }) {
     if (dropping && hexKey(tile.hex) === hexKey(dropping.hex)) continue;
     drawTile(c, tile.sides, p.x, p.y, HEX_SIZE);
   }
+  drawSeams(c, game.board, dropping ? hexKey(dropping.hex) : null);
 
   // La loseta recién puesta cae con un pequeño rebote y su sombra se encoge.
   if (dropping) {
