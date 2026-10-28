@@ -1,10 +1,8 @@
 // Ranking online: mote del jugador y mejores puntuaciones por pantalla.
-// En GitHub Pages habla con el Worker de ranking-worker/ (Cloudflare); en Netlify,
-// con netlify/functions/ranking.mjs. Si no hay conexión
-// (o se juega en local sin servidor), las puntuaciones esperan en el guardado
-// y se mandan la próxima vez.
+// Habla con el Worker de ranking-worker/ (Cloudflare). Si no hay conexión, las
+// puntuaciones esperan en el guardado y se mandan la próxima vez.
 
-const API = location.hostname.endsWith('github.io') ? 'https://pokeromantik-ranking.delaguicampanillas.workers.dev' : 'api/ranking';
+const API = 'https://pokeromantik-ranking.delaguicampanillas.workers.dev';
 const TIMEOUT = 8000;
 
 async function call(options = {}, query = '') {

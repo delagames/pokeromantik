@@ -348,18 +348,6 @@ body.touch .mouse-only { display: none; }
   color: var(--texto);
 }
 
-/* Netlify mete su insignia en la esquina inferior derecha, encima de la mano.
-   En pantalla grande la llevamos al centro de abajo; en el móvil no cabe y se oculta. */
-#nl-badge-frame {
-  right: auto !important;
-  left: 50% !important;
-  transform: translateX(-50%);
-}
-
-@media (max-width: 760px) {
-  #nl-badge-frame { display: none !important; }
-}
-
 /* Recorrido: pantallas unidas por un camino en zigzag. */
 #route-map {
   position: relative;
