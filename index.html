@@ -23,30 +23,35 @@
     <img class="start-logo" src="assets/logo/logo-principal.svg" alt="Pokéromantik, un puzle tranquilo">
     <img class="menu-logo" src="assets/logo/logo-horizontal-transparente.svg" alt="Pokéromantik">
     <p id="menu-progress" class="muted"></p>
-    <p id="menu-unlock" class="muted"></p>
-    <p id="menu-player" class="muted">Juegas como <strong id="menu-mote"></strong> ·
-      <button id="menu-change-mote" class="link">cambiar mote</button></p>
     <div id="menu-top" class="menu-top"></div>
     <div class="menu-buttons">
       <button id="menu-continue">Continuar</button>
       <button id="menu-finish" class="secondary">Terminar partida</button>
       <button id="menu-route">Recorrido</button>
-      <button id="menu-new" class="secondary">Partida libre</button>
-      <button id="menu-ranking" class="secondary">Ranking</button>
-      <button id="menu-dex" class="secondary">Pokédex</button>
-      <button id="menu-gallery" class="secondary">Galería e historial</button>
+      <div class="grid">
+        <button id="menu-new" class="secondary">Partida libre</button>
+        <button id="menu-ranking" class="secondary">Ranking</button>
+        <button id="menu-dex" class="secondary">Pokédex</button>
+        <button id="menu-gallery" class="secondary">Galería</button>
+      </div>
+    </div>
+    <details class="menu-more">
+      <summary>Ajustes y ayuda</summary>
+      <p id="menu-player" class="muted">Juegas como <strong id="menu-mote"></strong> ·
+        <button id="menu-change-mote" class="link">cambiar mote</button></p>
+      <p id="menu-unlock" class="muted"></p>
+      <div class="settings">
+        <label><input id="opt-music" type="checkbox"> Música</label>
+        <label><input id="opt-sfx" type="checkbox"> Efectos</label>
+        <label><input id="opt-camera" type="checkbox"> Animaciones de cámara</label>
+      </div>
       <div class="row">
         <button id="menu-export" class="secondary">Exportar guardado</button>
         <button id="menu-import" class="secondary">Importar guardado</button>
       </div>
-    </div>
-    <div class="settings">
-      <label><input id="opt-music" type="checkbox"> Música</label>
-      <label><input id="opt-sfx" type="checkbox"> Efectos</label>
-      <label><input id="opt-camera" type="checkbox"> Animaciones de cámara</label>
-    </div>
-    <p class="muted keys mouse-only">Rueda: zoom · Arrastrar: mover · R o Shift+rueda: girar · Clic: colocar · Z: deshacer · Esc: menú</p>
-    <p class="muted keys touch-only">Arrastra para mover · Pellizca para el zoom · Toca la loseta de la mano para girarla · Toca un hueco para colocarla</p>
+      <p class="muted keys mouse-only">Rueda: zoom · Arrastrar: mover · R o Shift+rueda: girar · Clic: colocar · Z: deshacer · Esc: menú</p>
+      <p class="muted keys touch-only">Arrastra para mover · Pellizca para el zoom · Toca la loseta de la mano para girarla · Toca un hueco para colocarla</p>
+    </details>
     <p id="menu-message" class="muted"></p>
     <p class="thanks">Gracias a Juanjosé “el topo”</p>
     <input id="import-file" type="file" accept=".json,application/json" hidden>
