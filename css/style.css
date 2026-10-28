@@ -556,3 +556,30 @@ body.inicio .menu-top { color: var(--amarillo); }
 .end-ranking { max-width: 360px; margin: 0 auto 10px; }
 .end-ranking h3 { margin: 4px 0 2px; font-family: var(--titulo); font-size: 16px; }
 .end-ranking p { margin: 0 0 4px; }
+
+/* Resumen final: nunca más alto que la pantalla. Lo que no cabe lo absorbe la
+   lista de Pokémon, que se desplaza. */
+#end-panel {
+  display: flex;
+  flex-direction: column;
+  max-width: calc(100vw - 16px);
+  max-height: calc(100vh - 16px);
+  max-height: calc(100dvh - 16px);
+}
+#end-panel .mon-list { flex: 1 1 auto; min-height: 80px; margin: 0 auto; }
+#end-panel .mon-list:empty { display: none; }
+#end-panel .buttons { flex-shrink: 0; }
+
+/* Pantallas bajas (móvil): menos relleno arriba y abajo. */
+@media (max-height: 760px), (max-width: 520px) {
+  #end-panel { padding: 12px 14px; }
+  #end-panel h2 { margin-bottom: 2px; font-size: 20px; }
+  #end-panel .stats { gap: 14px; margin: 4px 0 6px; }
+  #end-panel .stats strong { font-size: 21px; }
+  #end-panel .stars.big { font-size: 22px; }
+  #end-panel .stage-result { font-size: 16px; }
+  #end-panel .end-ranking { margin-bottom: 6px; }
+  #end-unlocks { margin-bottom: 6px; }
+  #end-panel .buttons { gap: 6px; margin-top: 10px; }
+  #end-panel .buttons button { padding: 6px 12px; font-size: 14px; }
+}

@@ -390,6 +390,12 @@ function setupScreens() {
   $('menu-button').addEventListener('click', () => openOverlay('menu'));
   $('undo-button').addEventListener('click', undo);
   $('menu-continue').addEventListener('click', closeOverlay);
+  $('menu-finish').addEventListener('click', () => {
+    closeOverlay();
+    game.finish();
+    persist();
+    endGame();
+  });
   $('menu-new').addEventListener('click', () => newGame(null));
   $('menu-route').addEventListener('click', () => openOverlay('recorrido'));
   $('route-close').addEventListener('click', () => openOverlay('menu'));
@@ -466,6 +472,8 @@ function openOverlay(name) {
     $('menu-unlock').textContent = next ? `Partida libre: con ${next.at} en la Pokédex, ${next.text.toLowerCase()}` : '';
     const fresh = game.placed === 0 && state === 'partida';
     $('menu-continue').textContent = `${fresh ? 'Jugar' : 'Continuar'} · ${stage?.nombre ?? 'partida libre'}`;
+    // La partida libre se puede cerrar cuando se quiera, con el mapa que haya.
+    $('menu-finish').classList.toggle('hidden', !!stage || state !== 'partida' || game.placed === 0);
     // Con una partida a medias, lo primero es seguirla; si no, el recorrido.
     $('menu-route').classList.toggle('secondary', state === 'partida');
   }

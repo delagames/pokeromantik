@@ -39,13 +39,19 @@ export class Game {
     this.nextUid = 1;
     this.clock = 0;       // segundos de partida, para animaciones y el ciclo de día
     this.recorded = false; // si ya se apuntó en el historial
+    this.ended = false;    // terminada a mano antes de acabar el mazo (partida libre)
     this.undoSnapshot = null;
     this.undosUsed = 0;   // fuera del snapshot: deshacer no devuelve usos
     this.regions = this.board.regions();
   }
 
   get over() {
-    return this.deck.length === 0;
+    return this.ended || this.deck.length === 0;
+  }
+
+  // Termina la partida aunque queden losetas: el mapa se queda como está.
+  finish() {
+    this.ended = true;
   }
 
   get hand() {
@@ -125,6 +131,7 @@ export class Game {
     if (!this.canUndo()) return false;
     this.restore(this.undoSnapshot);
     this.undoSnapshot = null;
+    this.ended = false;
     this.undosUsed++;
     return true;
   }
@@ -166,6 +173,7 @@ export class Game {
       state: this.snapshot(),
       clock: this.clock,
       recorded: this.recorded,
+      ended: this.ended,
       undo: this.undoSnapshot,
       undosUsed: this.undosUsed,
     };
@@ -177,6 +185,7 @@ export class Game {
     game.restore(data.state);
     game.clock = data.clock ?? 0;
     game.recorded = data.recorded ?? false;
+    game.ended = data.ended ?? false;
     game.undoSnapshot = data.undo ?? null;
     game.undosUsed = data.undosUsed ?? 0;
     return game;
