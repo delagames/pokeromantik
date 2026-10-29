@@ -19,7 +19,7 @@ import {
   progress, registerCatch, setPantallas, stageOptions, UNCAUGHT_BIAS,
 } from './pantallas.js';
 import { setMusic, setMusicLayers, setSfx, sfx, startAudio } from './audio.js';
-import { MAP_H, MAP_W, TOWNS, kantoSVG, place } from './mapa.js';
+import { MAP_H, MAP_W, TOWNS, drawKanto, place } from './mapa.js';
 import { drawParajeLabels, drawParajeLights, drawParajes, resetParajes, updateParajes } from './parajes.js';
 import {
   MOTE_PATTERN, PIN_PATTERN, claimMote, cleanMote, flushPending, getRanking, submitScore, uploadSave,
@@ -522,11 +522,16 @@ function toggleMenu() {
 function renderRoute() {
   const stages = allPantallas();
   const map = $('route-map');
-  // Se estira hacia abajo para llenar el alto que haya, hasta dos veces y media.
-  const room = window.innerHeight - map.getBoundingClientRect().top - 24;
-  const stretch = Math.min(2.5, Math.max(1, room / (map.clientWidth * (MAP_H / MAP_W))));
-  map.style.aspectRatio = `${MAP_W} / ${MAP_H * stretch}`;
-  map.replaceChildren(kantoSVG(stretch));
+  // Tan alto como quepa; en el móvil es más ancho que la pantalla y se mueve de lado.
+  const scroller = $('route-scroll');
+  const room = window.innerHeight - scroller.getBoundingClientRect().top - 20;
+  const height = Math.round(Math.min(820, Math.max(340, room)));
+  map.style.height = `${height}px`;
+  map.style.width = `${Math.round((height * MAP_W) / MAP_H)}px`;
+  const canvas = document.createElement('canvas');
+  canvas.className = 'kanto';
+  map.replaceChildren(canvas);
+  drawKanto(canvas);
   for (const t of TOWNS) {
     const town = document.createElement('span');
     town.className = `town lado-${t.etiqueta}`;
@@ -575,7 +580,7 @@ function renderRoute() {
     map.append(node);
   });
   $('route-count').textContent = `★ ${total} / ${stages.length * 3}`;
-  requestAnimationFrame(() => map.querySelector('.stage.current')?.scrollIntoView({ block: 'center' }));
+  requestAnimationFrame(() => map.querySelector('.stage.current')?.scrollIntoView({ block: 'nearest', inline: 'center' }));
 }
 
 function openStagePanel(id) {

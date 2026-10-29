@@ -349,11 +349,17 @@ body.touch .mouse-only { display: none; }
 }
 
 /* Recorrido: mapa de Kanto con las pantallas encima. */
+#route-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 0 calc(-16px - var(--safe-right)) 0 calc(-16px - var(--safe-left));
+  padding: 0 16px 6px;
+  scrollbar-width: thin;
+}
+
 #route-map {
-  --disc: 36px;
+  --disc: 46px;
   position: relative;
-  width: min(760px, 100%);
-  aspect-ratio: 4 / 3;
   margin: 0 auto;
   border: 3px solid var(--texto);
   border-radius: 16px;
@@ -361,37 +367,12 @@ body.touch .mouse-only { display: none; }
   box-shadow: 0 4px 0 rgba(11, 16, 32, 0.2);
 }
 
-@media (min-width: 600px) {
-  #route-map { --disc: 50px; }
-}
-
-.kanto { position: absolute; inset: 0; width: 100%; height: 100%; }
-.kanto .mar { fill: #BFDDEB; }
-.kanto .ola { fill: none; stroke: #93C2DA; stroke-width: 0.6; stroke-linecap: round; }
-.kanto .tierra { fill: #E3EAC6; stroke: var(--texto); stroke-width: 2px; vector-effect: non-scaling-stroke; }
-.kanto .monte { fill: #B9AE9C; stroke: #8C8170; stroke-width: 0.5; stroke-linejoin: round; }
-.kanto .arbol { fill: #5E9C55; stroke: #3F7340; stroke-width: 0.4; }
-.kanto .borde-camino, .kanto .camino { fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.kanto .borde-camino { stroke: #B5A585; stroke-width: 3.2; }
-.kanto .camino { stroke: #F4E7C4; stroke-width: 2; }
-.kanto .ruta-mar { fill: none; stroke: #6FA6C6; stroke-width: 1; stroke-dasharray: 1.5 2; stroke-linecap: round; }
+.kanto { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 
 /* Pueblos de paso y pantallas: un punto en el mapa con su nombre a un lado. */
 .town, .stage { position: absolute; width: 0; height: 0; }
 
-.town::before {
-  content: '';
-  position: absolute;
-  left: -5px;
-  top: -5px;
-  width: 10px;
-  height: 10px;
-  border-radius: 2px;
-  background: white;
-  border: 2px solid var(--texto);
-  box-sizing: border-box;
-}
-
+/* Nombres como los de los parajes del tablero: letra redonda con borde blanco. */
 .town .label, .stage .info {
   position: absolute;
   display: flex;
@@ -399,10 +380,14 @@ body.touch .mouse-only { display: none; }
   align-items: center;
   white-space: nowrap;
   line-height: 1.05;
-  text-shadow: 0 0 3px #F7F9EE, 0 0 3px #F7F9EE, 0 0 2px #F7F9EE;
+  font-family: var(--titulo);
+  font-weight: 800;
+  color: #2E3A2A;
+  -webkit-text-stroke: 4px rgba(255, 255, 255, 0.92);
+  paint-order: stroke fill;
 }
 
-.town .label { --r: 5px; font-size: 10px; color: var(--suave); }
+.town .label { --r: 4px; font-size: 13px; }
 .stage .info { --r: calc(var(--disc) / 2); }
 
 .lado-derecha > .label, .lado-derecha > .info { left: calc(var(--r) + 4px); top: 0; transform: translateY(-50%); align-items: flex-start; }
@@ -449,17 +434,12 @@ body.touch .mouse-only { display: none; }
   font-size: calc(var(--disc) * 0.34);
 }
 
-.stage .label { font-size: 13px; font-weight: 700; }
-.stage .stars { color: #D3940F; font-size: 12px; letter-spacing: 1px; }
+.stage .label { font-size: 16px; }
+.stage .stars { color: #E0A21B; font-size: 14px; letter-spacing: 1px; }
 .stage.locked .disc { filter: grayscale(1) brightness(1.3) contrast(0.6); }
-.stage.locked .label { color: var(--suave); font-weight: 600; }
+.stage.locked .label { color: #5E6672; }
 .stage.complete .disc { border-color: #E0A21B; }
 
-@media (min-width: 600px) {
-  .town .label { font-size: 12px; }
-  .stage .label { font-size: 16px; }
-  .stage .stars { font-size: 15px; }
-}
 
 .stage.current .disc { animation: latido 1.6s ease-in-out infinite; }
 
