@@ -348,82 +348,124 @@ body.touch .mouse-only { display: none; }
   color: var(--texto);
 }
 
-/* Recorrido: pantallas unidas por un camino en zigzag. */
+/* Recorrido: mapa de Kanto con las pantallas encima. */
 #route-map {
+  --disc: 36px;
   position: relative;
-  width: min(520px, 100%);
+  width: min(760px, 100%);
+  aspect-ratio: 4 / 3;
   margin: 0 auto;
+  border: 3px solid var(--texto);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 0 rgba(11, 16, 32, 0.2);
 }
 
-.route-path {
+@media (min-width: 600px) {
+  #route-map { --disc: 50px; }
+}
+
+.kanto { position: absolute; inset: 0; width: 100%; height: 100%; }
+.kanto .mar { fill: #BFDDEB; }
+.kanto .ola { fill: none; stroke: #93C2DA; stroke-width: 0.6; stroke-linecap: round; }
+.kanto .tierra { fill: #E3EAC6; stroke: var(--texto); stroke-width: 2px; vector-effect: non-scaling-stroke; }
+.kanto .monte { fill: #B9AE9C; stroke: #8C8170; stroke-width: 0.5; stroke-linejoin: round; }
+.kanto .arbol { fill: #5E9C55; stroke: #3F7340; stroke-width: 0.4; }
+.kanto .borde-camino, .kanto .camino { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.kanto .borde-camino { stroke: #B5A585; stroke-width: 3.2; }
+.kanto .camino { stroke: #F4E7C4; stroke-width: 2; }
+.kanto .ruta-mar { fill: none; stroke: #6FA6C6; stroke-width: 1; stroke-dasharray: 1.5 2; stroke-linecap: round; }
+
+/* Pueblos de paso y pantallas: un punto en el mapa con su nombre a un lado. */
+.town, .stage { position: absolute; width: 0; height: 0; }
+
+.town::before {
+  content: '';
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
+  left: -5px;
+  top: -5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: white;
+  border: 2px solid var(--texto);
+  box-sizing: border-box;
 }
 
-.route-path path {
-  fill: none;
-  stroke: #C9BFAE;
-  stroke-width: 5;
-  stroke-linecap: round;
-  stroke-dasharray: 2 10;
-}
-
-.route-path path.open { stroke: var(--naranja); stroke-dasharray: none; }
-
-.stage {
+.town .label, .stage .info {
   position: absolute;
-  transform: translate(-50%, -38px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
-  width: 140px;
+  white-space: nowrap;
+  line-height: 1.05;
+  text-shadow: 0 0 3px #F7F9EE, 0 0 3px #F7F9EE, 0 0 2px #F7F9EE;
+}
+
+.town .label { --r: 5px; font-size: 10px; color: var(--suave); }
+.stage .info { --r: calc(var(--disc) / 2); }
+
+.lado-derecha > .label, .lado-derecha > .info { left: calc(var(--r) + 4px); top: 0; transform: translateY(-50%); align-items: flex-start; }
+.lado-izquierda > .label, .lado-izquierda > .info { right: calc(var(--r) + 4px); top: 0; transform: translateY(-50%); align-items: flex-end; }
+.lado-abajo > .label, .lado-abajo > .info { left: 0; top: calc(var(--r) + 2px); transform: translateX(-50%); }
+.lado-arriba > .label, .lado-arriba > .info { left: 0; bottom: calc(var(--r) + 2px); transform: translateX(-50%); }
+.lado-arriba > .info { flex-direction: column-reverse; }
+
+.stage {
   padding: 0;
   background: none;
   color: var(--texto);
   box-shadow: none;
+  overflow: visible;
 }
 
-.stage:hover { background: none; }
-.stage:active { transform: translate(-50%, -36px); box-shadow: none; }
+.stage:hover, .stage:active { background: none; box-shadow: none; transform: none; }
 
 .stage .disc {
-  position: relative;
+  position: absolute;
+  left: calc(var(--disc) / -2);
+  top: calc(var(--disc) / -2);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
+  width: var(--disc);
+  height: var(--disc);
   border-radius: 50%;
   border: 3px solid var(--texto);
-  box-shadow: 0 4px 0 rgba(11, 16, 32, 0.25);
+  box-sizing: border-box;
+  box-shadow: 0 3px 0 rgba(11, 16, 32, 0.3);
 }
+
+.stage:active .disc { top: calc(var(--disc) / -2 + 2px); box-shadow: 0 1px 0 rgba(11, 16, 32, 0.3); }
 
 .stage .num {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
+  width: 58%;
+  height: 58%;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.9);
-  font-size: 18px;
+  font-size: calc(var(--disc) * 0.34);
 }
 
-.stage .label { font-size: 15px; line-height: 1.1; text-shadow: 0 1px 0 var(--fondo); }
-.stage .stars { color: #E0A21B; font-size: 15px; letter-spacing: 1px; min-height: 18px; }
+.stage .label { font-size: 13px; font-weight: 700; }
+.stage .stars { color: #D3940F; font-size: 12px; letter-spacing: 1px; }
 .stage.locked .disc { filter: grayscale(1) brightness(1.3) contrast(0.6); }
-.stage.locked .label { color: var(--suave); }
+.stage.locked .label { color: var(--suave); font-weight: 600; }
 .stage.complete .disc { border-color: #E0A21B; }
+
+@media (min-width: 600px) {
+  .town .label { font-size: 12px; }
+  .stage .label { font-size: 16px; }
+  .stage .stars { font-size: 15px; }
+}
 
 .stage.current .disc { animation: latido 1.6s ease-in-out infinite; }
 
 @keyframes latido {
-  0%, 100% { box-shadow: 0 4px 0 rgba(11, 16, 32, 0.25), 0 0 0 0 rgba(226, 101, 63, 0.5); }
-  50% { box-shadow: 0 4px 0 rgba(11, 16, 32, 0.25), 0 0 0 10px rgba(226, 101, 63, 0); }
+  0%, 100% { box-shadow: 0 3px 0 rgba(11, 16, 32, 0.3), 0 0 0 0 rgba(226, 101, 63, 0.6); }
+  50% { box-shadow: 0 3px 0 rgba(11, 16, 32, 0.3), 0 0 0 10px rgba(226, 101, 63, 0); }
 }
 
 @media (prefers-reduced-motion: reduce) {

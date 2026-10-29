@@ -19,6 +19,7 @@ import {
   progress, registerCatch, setPantallas, stageOptions, UNCAUGHT_BIAS,
 } from './pantallas.js';
 import { setMusic, setMusicLayers, setSfx, sfx, startAudio } from './audio.js';
+import { MAP_H, MAP_W, TOWNS, kantoSVG, place } from './mapa.js';
 import { drawParajeLabels, drawParajeLights, drawParajes, resetParajes, updateParajes } from './parajes.js';
 import {
   MOTE_PATTERN, PIN_PATTERN, claimMote, cleanMote, flushPending, getRanking, submitScore, uploadSave,
@@ -104,8 +105,7 @@ async function init() {
   // Sin mote no se juega: es lo que identifica al jugador en el ranking.
   if (!save.mote) openMotePanel(true);
   else {
-    sendPending();
-    scheduleUpload();
+    reclaimMote();
     // Motes de antes del PIN: se pide uno para poder recuperarlo.
     if (!save.pin) openMotePanel(false, 'Ponle un PIN de 4 cifras a tu mote: con los dos recuperas tu partida si se borra el guardado o cambias de móvil.');
   }
@@ -518,35 +518,25 @@ function toggleMenu() {
 
 // --- Recorrido -----------------------------------------------------------------
 
-const ROUTE_STEP = 132;  // separación vertical entre pantallas, en píxeles
-const ROUTE_SWAY = [50, 76, 50, 24];  // posición horizontal (%) en zigzag
-
+// Mapa de Kanto con las pantallas encima, cada una en su sitio (`mapa` en pantallas.json).
 function renderRoute() {
   const stages = allPantallas();
   const map = $('route-map');
-  map.replaceChildren();
-  const height = ROUTE_STEP * stages.length;
-  map.style.height = `${height}px`;
-  const points = stages.map((s, i) => ({ x: ROUTE_SWAY[i % ROUTE_SWAY.length], y: ROUTE_STEP * (i + 0.5) }));
-
-  // Camino: una curva suave entre pantallas, continua hasta la última abierta
-  // y punteada después.
-  const svgNS = 'http://www.w3.org/2000/svg';
-  const svg = document.createElementNS(svgNS, 'svg');
-  svg.setAttribute('viewBox', `0 0 100 ${height}`);
-  svg.setAttribute('preserveAspectRatio', 'none');
-  svg.classList.add('route-path');
-  for (let i = 1; i < points.length; i++) {
-    const a = points[i - 1];
-    const b = points[i];
-    const mid = (a.y + b.y) / 2;
-    const path = document.createElementNS(svgNS, 'path');
-    path.setAttribute('d', `M ${a.x} ${a.y} C ${a.x} ${mid}, ${b.x} ${mid}, ${b.x} ${b.y}`);
-    path.setAttribute('vector-effect', 'non-scaling-stroke');
-    path.classList.toggle('open', isUnlocked(save, stages[i].id));
-    svg.append(path);
+  // Se estira hacia abajo para llenar el alto que haya, hasta dos veces y media.
+  const room = window.innerHeight - map.getBoundingClientRect().top - 24;
+  const stretch = Math.min(2.5, Math.max(1, room / (map.clientWidth * (MAP_H / MAP_W))));
+  map.style.aspectRatio = `${MAP_W} / ${MAP_H * stretch}`;
+  map.replaceChildren(kantoSVG(stretch));
+  for (const t of TOWNS) {
+    const town = document.createElement('span');
+    town.className = `town lado-${t.etiqueta}`;
+    const name = document.createElement('span');
+    name.className = 'label';
+    name.textContent = t.nombre;
+    town.append(name);
+    place(town, t.x, t.y);
+    map.append(town);
   }
-  map.append(svg);
 
   const current = currentStageId();
   let total = 0;
@@ -555,12 +545,11 @@ function renderRoute() {
     total += prog.stars;
     const open = isUnlocked(save, s.id);
     const node = document.createElement('button');
-    node.className = 'stage';
+    node.className = `stage lado-${s.mapa.etiqueta}`;
     node.classList.toggle('locked', !open);
     node.classList.toggle('current', open && s.id === current && !prog.superada);
     node.classList.toggle('complete', prog.stars === 3);
-    node.style.left = `${points[i].x}%`;
-    node.style.top = `${points[i].y}px`;
+    place(node, s.mapa.x, s.mapa.y);
 
     const disc = document.createElement('span');
     disc.className = 'disc';
@@ -572,13 +561,16 @@ function renderRoute() {
     num.className = 'num';
     num.textContent = open ? String(i + 1) : '🔒';
     disc.append(num);
+    const info = document.createElement('span');
+    info.className = 'info';
     const label = document.createElement('span');
     label.className = 'label';
     label.textContent = s.nombre;
     const stars = document.createElement('span');
     stars.className = 'stars';
     stars.textContent = open ? starText(prog.stars) : '';
-    node.append(disc, label, stars);
+    info.append(label, stars);
+    node.append(disc, info);
     node.addEventListener('click', () => openStagePanel(s.id));
     map.append(node);
   });
@@ -735,6 +727,20 @@ async function saveMote() {
     game.ranking = getRanking(save, stage.id);
     renderEndRanking();
   }
+}
+
+// Al abrir el juego se vuelve a apuntar el mote, por si el servidor ya no lo
+// tiene (ranking reiniciado): sin él no se guardaría la copia de la partida.
+function reclaimMote() {
+  claimMote(save, save.mote, save.pin).then(() => {
+    writeSave(save);
+    sendPending();
+    scheduleUpload();
+  }).catch(err => {
+    if (err.status === 403 || err.status === 409) {
+      openMotePanel(false, 'Tu mote lo tiene ahora otra persona. Elige otro para seguir en el ranking.');
+    }
+  });
 }
 
 // Copia del guardado en el servidor: como mucho cada UPLOAD_DELAY y al salir de la página.
@@ -925,6 +931,8 @@ function resize() {
   }
   canvas.width = Math.round(view.w * dpr);
   canvas.height = Math.round(view.h * dpr);
+  // El mapa del recorrido depende del alto de la pantalla (al girar el móvil).
+  if (overlay === 'recorrido') renderRoute();
 }
 
 function screenToWorld(sx, sy) {

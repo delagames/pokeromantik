@@ -20,6 +20,11 @@
   "patron": "hierba",
   "colores": {},
   "texto": "Hierba alta, un arroyo y los primeros árboles. Aquí empieza el viaje.",
+  "mapa": {
+   "x": 35,
+   "y": 79,
+   "etiqueta": "derecha"
+  },
   "pokemon": [
    16,
    17,
@@ -71,6 +76,11 @@
    "pradera": "#8FCB5E"
   },
   "texto": "Un bosque espeso donde la luz llega a ratos. De noche salen los bichos.",
+  "mapa": {
+   "x": 35,
+   "y": 47,
+   "etiqueta": "derecha"
+  },
   "pokemon": [
    1,
    2,
@@ -130,6 +140,11 @@
    "pradera": "#9CC77A"
   },
   "texto": "Túneles bajo la montaña y un claro donde dicen que bajan las estrellas.",
+  "mapa": {
+   "x": 66,
+   "y": 22,
+   "etiqueta": "arriba"
+  },
   "pokemon": [
    41,
    42,
@@ -185,6 +200,11 @@
    "ciudad": "#E8BE6A"
   },
   "texto": "Calles, jardines y un canal. Por la noche la ciudad no duerme.",
+  "mapa": {
+   "x": 70,
+   "y": 50,
+   "etiqueta": "abajo"
+  },
   "pokemon": [
    25,
    26,
@@ -238,6 +258,11 @@
    "montana": "#C9D3DE"
   },
   "texto": "Islotes helados entre corrientes frías. Solo hay agua y roca.",
+  "mapa": {
+   "x": 66,
+   "y": 111,
+   "etiqueta": "derecha"
+  },
   "pokemon": [
    72,
    73,
@@ -294,6 +319,11 @@
    "bosque": "#4E7D63"
   },
   "texto": "Un pueblo tranquilo con una torre muy vieja. De noche cuesta ver quién pasea.",
+  "mapa": {
+   "x": 128,
+   "y": 50,
+   "etiqueta": "abajo"
+  },
   "pokemon": [
    92,
    93,
@@ -343,6 +373,11 @@
    "montana": "#A7988F"
   },
   "texto": "Un volcán en mitad del mar, con fósiles en sus laderas.",
+  "mapa": {
+   "x": 43,
+   "y": 111,
+   "etiqueta": "izquierda"
+  },
   "pokemon": [
    37,
    38,
@@ -396,6 +431,11 @@
   "patron": "puntos",
   "colores": {},
   "texto": "El final del camino: todos los paisajes juntos y los Pokémon más fuertes de Kanto.",
+  "mapa": {
+   "x": 18,
+   "y": 28,
+   "etiqueta": "abajo"
+  },
   "pokemon": [
    83,
    115,
