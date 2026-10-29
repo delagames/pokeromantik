@@ -506,6 +506,7 @@ body.touch .mouse-only { display: none; }
 }
 
 #mote-panel { z-index: 4; width: min(360px, calc(100vw - 32px)); background: white; }
+#mote-panel .small { margin: 6px 0 0; font-size: 13px; }
 #mote-panel input {
   width: 100%;
   margin-top: 6px;

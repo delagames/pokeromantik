@@ -127,9 +127,12 @@
   <div id="modal-backdrop" class="backdrop hidden"></div>
   <div id="mote-panel" class="panel hidden" role="dialog" aria-labelledby="mote-title">
     <h2 id="mote-title">¿Cómo te llamamos?</h2>
-    <p class="muted">Elige un mote para el ranking. Lo verá todo el que juegue.</p>
+    <p id="mote-intro" class="muted"></p>
     <form id="mote-form">
       <input id="mote-input" maxlength="16" autocomplete="nickname" placeholder="Tu mote" aria-label="Mote">
+      <input id="pin-input" maxlength="4" inputmode="numeric" pattern="[0-9]*" autocomplete="off"
+        placeholder="PIN de 4 cifras" aria-label="PIN de 4 cifras">
+      <p class="muted small">Apúntate el PIN: el mote lo ve todo el mundo, el PIN solo tú.</p>
       <p id="mote-error" class="error"></p>
       <div class="buttons">
         <button type="button" id="mote-cancel" class="secondary">Cancelar</button>

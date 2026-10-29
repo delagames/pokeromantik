@@ -27,6 +27,7 @@ export function emptySave() {
     settings: {},  // música, efectos, animaciones de cámara
     jugador: null, // id aleatorio para el ranking online
     mote: null,    // nombre en el ranking
+    pin: null,     // 4 cifras para recuperar mote y guardado desde otro navegador
     rankingPendiente: [], // { pantalla, puntos } que aún no se han podido mandar
   };
 }
@@ -110,4 +111,36 @@ export async function importSave(file) {
     throw new Error('El archivo no es un guardado de Pokéromantik.');
   }
   return normalize(data);
+}
+
+// Lo que se sube al servidor para poder recuperarlo con mote y PIN: todo menos la
+// galería (las miniaturas pesan) y lo que es de este navegador.
+export function cloudCopy(save) {
+  const { gallery, jugador, pin, rankingPendiente, ...rest } = save;
+  return rest;
+}
+
+// Junta el guardado recuperado del servidor con lo jugado aquí desde que se
+// perdió: la Pokédex y el recorrido se suman, y manda la partida en curso de antes.
+export function mergeSave(local, remote) {
+  const save = normalize({ ...local, ...remote, gallery: local.gallery });
+  save.jugador = local.jugador;
+  save.mote = local.mote;
+  save.pin = local.pin;
+  save.rankingPendiente = local.rankingPendiente;
+  save.pokedex = { ...local.pokedex, ...save.pokedex };
+  for (const [id, mine] of Object.entries(local.pantallas)) {
+    const theirs = save.pantallas[id];
+    save.pantallas[id] = !theirs ? mine : {
+      ...theirs,
+      capturados: [...new Set([...theirs.capturados, ...mine.capturados])],
+      superada: theirs.superada || mine.superada,
+      mejor: Math.max(theirs.mejor, mine.mejor),
+    };
+  }
+  const dates = new Set(save.history.map(h => h.fecha));
+  save.history = [...save.history, ...local.history.filter(h => !dates.has(h.fecha))]
+    .sort((a, b) => a.fecha.localeCompare(b.fecha)).slice(-MAX_HISTORY);
+  save.current = remote.current ?? local.current;
+  return save;
 }

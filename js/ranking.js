@@ -1,4 +1,5 @@
-// Ranking online: mote del jugador y mejores puntuaciones por pantalla.
+// Ranking online: mote del jugador, mejores puntuaciones por pantalla y una copia
+// del guardado para recuperarlo con mote y PIN.
 // Habla con el Worker de ranking-worker/ (Cloudflare). Si no hay conexión, las
 // puntuaciones esperan en el guardado y se mandan la próxima vez.
 
@@ -37,13 +38,30 @@ export function playerId(save) {
 
 export const MOTE_PATTERN = /^[\p{L}\p{N} _.\-]{2,16}$/u;
 
+export const PIN_PATTERN = /^\d{4}$/;
+
 export function cleanMote(raw) {
   return String(raw ?? '').trim().replace(/\s+/g, ' ');
 }
 
-// Reserva el mote. Lanza un error con `status` 409 si ya es de otra persona.
-export function claimMote(save, mote) {
-  return post({ accion: 'mote', jugador: playerId(save), mote });
+// Si mote y PIN eran de un jugador de antes (guardado borrado, otro móvil), el
+// servidor devuelve su id y se vuelve a ser ese jugador.
+function adopt(save, data) {
+  if (data?.jugador) save.jugador = data.jugador;
+  return data;
+}
+
+// Reserva el mote. Devuelve { mote, guardado }: el mote como quedó reservado y,
+// si se ha recuperado un jugador de antes, la copia de su guardado. Lanza un error con `status` 403 si el mote es
+// de otra persona y el PIN no coincide.
+export async function claimMote(save, mote, pin) {
+  return adopt(save, await post({ accion: 'mote', jugador: playerId(save), mote, pin }));
+}
+
+// Sube la copia del guardado. Sin mote no hay nada que recuperar luego.
+export function uploadSave(save, copy) {
+  if (!save.mote) return Promise.resolve();
+  return post({ accion: 'guardar', jugador: playerId(save), guardado: copy });
 }
 
 // { top: [{ mote, puntos, tuyo }], tu: { puesto, puntos } | null, jugadores }
@@ -65,7 +83,7 @@ export async function flushPending(save) {
   while (pending.length) {
     const { pantalla, puntos } = pending[0];
     try {
-      await post({ accion: 'puntos', jugador: playerId(save), mote: save.mote, pantalla, puntos });
+      adopt(save, await post({ accion: 'puntos', jugador: playerId(save), mote: save.mote, pin: save.pin, pantalla, puntos }));
     } catch (err) {
       // 400: la puntuación no vale y no valdrá nunca; el resto se reintenta luego.
       if (err.status === 400) {

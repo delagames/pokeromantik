@@ -10,8 +10,8 @@ import {
 } from './pokemon.js';
 import { buildTour, downloadMapPNG, mapThumbnail, tourCamera } from './ending.js';
 import {
-  UNLOCKS, addHistory, addToGallery, exportSave, importSave, loadSave, registerSighting,
-  seenCount, unlocked, writeSave,
+  UNLOCKS, addHistory, addToGallery, cloudCopy, exportSave, importSave, loadSave, mergeSave,
+  registerSighting, seenCount, unlocked, writeSave,
 } from './save.js';
 import { closePokedex, openPokedex, setupPokedex } from './pokedex.js';
 import {
@@ -20,7 +20,9 @@ import {
 } from './pantallas.js';
 import { setMusic, setMusicLayers, setSfx, sfx, startAudio } from './audio.js';
 import { drawParajeLabels, drawParajeLights, drawParajes, resetParajes, updateParajes } from './parajes.js';
-import { MOTE_PATTERN, claimMote, cleanMote, flushPending, getRanking, submitScore } from './ranking.js';
+import {
+  MOTE_PATTERN, PIN_PATTERN, claimMote, cleanMote, flushPending, getRanking, submitScore, uploadSave,
+} from './ranking.js';
 
 const ZOOM_MIN = 0.35;
 const ZOOM_MAX = 2.5;
@@ -32,6 +34,7 @@ const DROP_TIME = 0.22;       // caída de la loseta al colocarla
 const FLASH_TIME = 1.5;       // destello de misión cumplida
 const SPAWN_TIME = 1.2;       // brillo al aparecer un Pokémon
 const STAGE_UNDOS = 3;        // veces que se puede deshacer en cada partida del recorrido
+const UPLOAD_DELAY = 30000;   // como mucho una copia del guardado al servidor cada tanto (ms)
 
 const $ = id => document.getElementById(id);
 // Pantalla táctil como entrada principal (móvil o tablet).
@@ -100,7 +103,15 @@ async function init() {
   for (const ev of ['pointerup', 'touchend', 'click', 'keydown']) window.addEventListener(ev, unlockAudio);
   // Sin mote no se juega: es lo que identifica al jugador en el ranking.
   if (!save.mote) openMotePanel(true);
-  else sendPending();
+  else {
+    sendPending();
+    scheduleUpload();
+    // Motes de antes del PIN: se pide uno para poder recuperarlo.
+    if (!save.pin) openMotePanel(false, 'Ponle un PIN de 4 cifras a tu mote: con los dos recuperas tu partida si se borra el guardado o cambias de móvil.');
+  }
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden' && uploadTimer) uploadNow();
+  });
   requestAnimationFrame(frame);
 }
 
@@ -195,6 +206,7 @@ function resumeGame() {
 function persist() {
   save.current = { ...game.toJSON(), newInDex: game.newInDex, dexAtStart: game.dexAtStart };
   writeSave(save);
+  scheduleUpload();
 }
 
 // --- Acciones de juego --------------------------------------------------------
@@ -651,13 +663,17 @@ function closeStagePanel() {
 
 const motePanelOpen = () => !$('mote-panel').classList.contains('hidden');
 
+const MOTE_INTRO = 'Elige un mote para el ranking y un PIN de 4 cifras. Si ya tenías mote, escríbelo con su PIN y recuperas tu partida.';
+
 // `forced`: el jugador aún no tiene mote y no puede cerrar el panel sin elegir uno.
-function openMotePanel(forced) {
+function openMotePanel(forced, intro = MOTE_INTRO) {
   $('mote-panel').classList.remove('hidden');
   $('modal-backdrop').classList.remove('hidden');
   $('mote-cancel').classList.toggle('hidden', forced);
+  $('mote-intro').textContent = intro;
   $('mote-error').textContent = '';
   $('mote-input').value = save.mote ?? '';
+  $('pin-input').value = save.pin ?? '';
   $('mote-input').focus();
 }
 
@@ -668,21 +684,30 @@ function closeMotePanel() {
 
 async function saveMote() {
   const mote = cleanMote($('mote-input').value);
+  const pin = $('pin-input').value.trim();
   const error = $('mote-error');
   if (!MOTE_PATTERN.test(mote)) {
-    error.textContent = 'De 2 a 16 letras, números o espacios.';
+    error.textContent = 'El mote: de 2 a 16 letras, números o espacios.';
+    return;
+  }
+  if (!PIN_PATTERN.test(pin)) {
+    error.textContent = 'El PIN: 4 cifras.';
     return;
   }
   const button = $('mote-save');
   button.disabled = true;
   button.textContent = 'Guardando…';
   let offline = false;
+  let recovered = null;
+  let claimed = mote;
   try {
-    await claimMote(save, mote);
+    ({ mote: claimed = mote, guardado: recovered } = await claimMote(save, mote, pin));
   } catch (err) {
     // Sin conexión se acepta el mote; se reserva al mandar la primera puntuación.
     if (err.status) {
-      error.textContent = err.status === 409 ? 'Ese mote ya lo tiene otra persona. Prueba con otro.' : err.message;
+      error.textContent = err.status === 403
+        ? 'Ese mote ya es de alguien y el PIN no coincide. Si es tuyo, revisa el PIN; si no, prueba con otro mote.'
+        : err.message;
       button.disabled = false;
       button.textContent = 'Guardar';
       return;
@@ -691,8 +716,17 @@ async function saveMote() {
   }
   button.disabled = false;
   button.textContent = 'Guardar';
-  save.mote = mote;
+  save.mote = claimed;
+  save.pin = pin;
+  if (recovered) {
+    // Partida recuperada: se recarga para empezar de cero con ella.
+    clearTimeout(uploadTimer);
+    writeSave(mergeSave(save, recovered));
+    location.reload();
+    return;
+  }
   writeSave(save);
+  if (!offline) uploadNow();
   closeMotePanel();
   if (overlay === 'menu') openOverlay('menu');
   if (offline) $('menu-message').textContent = 'Sin conexión: tu mote se apuntará en el ranking más tarde.';
@@ -701,6 +735,20 @@ async function saveMote() {
     game.ranking = getRanking(save, stage.id);
     renderEndRanking();
   }
+}
+
+// Copia del guardado en el servidor: como mucho cada UPLOAD_DELAY y al salir de la página.
+let uploadTimer = null;
+
+function scheduleUpload() {
+  if (!save.mote || uploadTimer) return;
+  uploadTimer = setTimeout(uploadNow, UPLOAD_DELAY);
+}
+
+function uploadNow() {
+  clearTimeout(uploadTimer);
+  uploadTimer = null;
+  uploadSave(save, cloudCopy(save)).catch(() => {});
 }
 
 // Manda las puntuaciones que quedaron sin mandar (sin conexión, o mote repetido).
@@ -757,10 +805,11 @@ function renderEndRanking() {
     status.textContent = youText(data);
   }).catch(err => {
     if (game.ranking !== shown) return;
-    status.replaceChildren(err.status === 409
+    const taken = err.status === 409 || err.status === 403;
+    status.replaceChildren(taken
       ? 'Tu mote ya lo tiene otra persona: cámbialo para entrar en el ranking. '
       : 'No se ha podido conectar con el ranking; tu puntuación se mandará más tarde. ');
-    if (err.status === 409) {
+    if (taken) {
       const change = document.createElement('button');
       change.className = 'link';
       change.textContent = 'Cambiar mote';
